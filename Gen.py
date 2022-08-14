@@ -14,6 +14,27 @@ from os.path import isfile, join
 from capmonster_python import HCaptchaTask
 
 
+try:
+    os.system("pip install requests")
+except:
+    pass
+
+try:
+    os.system("pip install colorama")
+except:
+    pass
+
+try:
+    os.system("pip install capmonster_python")
+except:
+    pass
+
+try:
+    os.system("pip install PyMailGw")
+except:
+    pass
+
+
 api = MailGwApi(proxy=None, timeout=30)
 
 
@@ -25,9 +46,9 @@ class config():
     with open('input/settings.json') as f:
         cfg = json.load(f)
 
-    key = cfg['key']
     capmonster_key = cfg['capmonster_key']
     random_bio = cfg['random_bio']
+    use_proxy = cfg['use_proxy']
 
 
 
