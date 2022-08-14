@@ -162,8 +162,10 @@ def gen():
             'hCaptchaSiteKey': 'a20d9b66-6747-404a-9393-c449c4611661',
             'source': 'explicit',
         }
-
-        r = requests.post('https://replit.com/signup', headers=headers, json=json, proxies=proxies)
+        if config.use_proxy == True:
+            r = requests.post('https://replit.com/signup', headers=headers, json=json, proxies=proxies)
+        if config.use_proxy == False:
+            r = requests.post('https://replit.com/signup', headers=headers, json=json)
         stats.genned += 1
         cookies = r.headers['set-cookie']
         s_cookie = cookies.split(';')[4]
