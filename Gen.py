@@ -13,7 +13,6 @@ from PyMailGw import MailGwApi
 from os.path import isfile, join
 from capmonster_python import HCaptchaTask
 
-
 try:
     os.system("pip install requests")
 except:
@@ -36,10 +35,13 @@ except:
 
 
 api = MailGwApi(proxy=None, timeout=30)
+version = "1"
 
-
-
-
+ver = requests.get('https://raw.githubusercontent.com/Hazza3100/ReplitGen/main/version.txt').text
+if version in ver:
+    print(f"{Fore.GREEN}Up to date!{Fore.RESET}\n")
+else:
+    print(f"{Fore.RED}Please Download new version from https://github.com/Hazza3100/ReplitGen{Fore.RESET}\n")
 
 
 class config():
