@@ -1,1 +1,1 @@
-10 stars and release
+5 stars and release
