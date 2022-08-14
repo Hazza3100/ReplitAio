@@ -1,4 +1,5 @@
 {
     "capmonster_key": "",
-    "random_bio": true
+    "random_bio": true,
+    "use_proxy": true
 }
