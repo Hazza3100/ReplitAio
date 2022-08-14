@@ -63,7 +63,7 @@ This project is licensed under the GPL General Public License v3.0 License - see
 ## 💭・ChangeLog
 
 ```diff
-v1 ⋮ 17/6/22
+v1 ⋮ 14/8/22
 + Stable Release
 
 ```
