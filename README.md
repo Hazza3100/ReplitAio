@@ -30,6 +30,7 @@ Simple Replit Account Generator with a lot of features
 ```
 
  ## 🥅 ・Goals
+```
 
 ・ 5 stars I will add follow bot
 
@@ -40,6 +41,8 @@ Simple Replit Account Generator with a lot of features
 ・ 20 Stars I will add something new and mega good
 
 ・ 30  At this point I don't even know 😂
+
+```
 
 ## Support me
 ・Join my discord
