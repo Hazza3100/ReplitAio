@@ -1,3 +1,7 @@
+# Author     : Hazza3100
+# Github     : https://github.com/Hazza3100
+# Description: Replit Fork Bot
+
 import threading
 import requests
 import random
