@@ -2,7 +2,7 @@
 Simple Replit Account Generator with a lot of features
 
 
-![Screenshot](aio.png)
+![Screenshot](Aio.png)
 
 
 # ・How to use
