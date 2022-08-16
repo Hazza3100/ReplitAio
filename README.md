@@ -17,7 +17,7 @@ Also included a replit aio
 
 ・It takes 2 seconds to star, longer to maintain :)
 
-## ・Generator Features
+## Generator Features
 ```
 ・Account Generator
 
