@@ -39,9 +39,9 @@ Simple Replit Account Generator with a lot of features
 
  ## 🥅 ・Goals
 ```
-・ 5 stars I will add follow bot
+・ 5 stars I will add follow bot ✅
 
-・ 10 stars I will add a fork bot
+・ 10 stars I will add a fork bot ✅
 
 ・ 15 stars I will add a run bot
 
