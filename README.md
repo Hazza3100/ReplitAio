@@ -29,6 +29,14 @@ Simple Replit Account Generator with a lot of features
 
 ```
 
+## ・Extra
+```
+・ Follow Bot
+
+・ Fork Bot
+```
+
+
  ## 🥅 ・Goals
 ```
 ・ 5 stars I will add follow bot
