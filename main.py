@@ -534,7 +534,7 @@ class Extra():
         else:
             print("Error")
     
-    def run(repl_id):
+    def run(repl_id, link):
 
         cookies = open('cookies.txt', 'r').read().splitlines()
         cookie = random.choice(cookies)
@@ -545,7 +545,7 @@ class Extra():
             'accept-language': 'en-GB,en;q=0.9',
             'cookie': cookie,
             'origin': 'https://replit.com',
-            'referer': 'https://replit.com/@Hazza-loltxexfdtx/ExperiencedVigorousDemos?v=1',
+            'referer': link,
             'sec-ch-ua': '"Chromium";v="104", " Not A;Brand";v="99", "Google Chrome";v="104"',
             'sec-ch-ua-mobile': '?0',
             'sec-ch-ua-platform': '"Windows"',
@@ -651,6 +651,166 @@ class Extra():
             else:
                 print(f"{Fore.MAGENTA}Taken |{Fore.RESET} {username}")
 
+    def banner_change():
+
+        cookies = open('input/cookies.txt', 'r').read().splitlines()
+        cookie = random.choice(cookies)
+
+
+        banners = [f for f in os.listdir("banners/") if isfile(join("banners/", f))]
+        random_banner = random.choice(banners)
+
+        with open(f'banners/{random_banner}', "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read())
+
+        headers_id = {
+            'authority': 'replit.com',
+            'accept': 'application/json',
+            'accept-language': 'en-GB,en;q=0.9',
+            'cookie': cookie,
+            'origin': 'https://replit.com',
+            'referer': 'https://replit.com/@account',
+            'sec-ch-ua': '"Chromium";v="104", " Not A;Brand";v="99", "Google Chrome";v="104"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36',
+            'x-requested-with': 'XMLHttpRequest',
+        }
+
+        json_id = {
+            'image': f"data:image/png;base64,{(encoded_string.decode('utf-8'))}",
+            'context': 'profile-cover-image',
+        }
+
+        r = requests.post('https://replit.com/data/images/upload', headers=headers_id, json=json_id)
+        upload_id = r.json()['id']
+
+
+        headers_up = {
+            'authority': 'replit.com',
+            'accept': '*/*',
+            'accept-language': 'en-GB,en;q=0.9',
+            'cookie': cookie,
+            'origin': 'https://replit.com',
+            'referer': 'https://replit.com/account',
+            'sec-ch-ua': '"Chromium";v="104", " Not A;Brand";v="99", "Google Chrome";v="104"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36',
+            'x-requested-with': 'XMLHttpRequest',
+        }
+
+        json_up = [
+            {
+                'operationName': 'CoverImageUpdate',
+                'variables': {
+                    'input': {
+                        'imageId': upload_id,
+                        'offsetY': 0,
+                    },
+                },
+                'query': 'mutation CoverImageUpdate($input: SetUserCoverImageInput!) {\n  setUserCoverImage(input: $input) {\n    ... on CurrentUser {\n      id\n      ...CoverImageCurrentUser\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment CoverImageCurrentUser on CurrentUser {\n  id\n  coverImage {\n    url\n    offsetY\n    __typename\n  }\n  __typename\n}\n',
+            },
+        ]
+
+        r = requests.post('https://replit.com/graphql', headers=headers_up, json=json_up)
+        if r.status_code == 200:
+            print(f"{Fore.GREEN} Updated{Fore.RESET}")
+        else:
+            print(f"{Fore.RED} Error{Fore.RESET}")
+
+
+    def pfp_change():
+
+        cookies = open('input/cookies.txt', 'r').read().splitlines()
+        cookie = random.choice(cookies)
+
+        pictures = [f for f in os.listdir("avatars/") if isfile(join("avatars/", f))]
+        random_pic = random.choice(pictures)
+
+        with open(f'avatars/{random_pic}', "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read())
+
+
+        headers_get_id = {
+            'authority': 'replit.com',
+            'accept': 'application/json',
+            'accept-language': 'en-GB,en;q=0.9',
+            'cookie': cookie,
+            'origin': 'https://replit.com',
+            'referer': 'https://replit.com/account',
+            'sec-ch-ua': '"Chromium";v="104", " Not A;Brand";v="99", "Google Chrome";v="104"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36',
+            'x-requested-with': 'XMLHttpRequest',
+        }
+
+        json_get_id = {
+            'image': f"data:image/png;base64,{(encoded_string.decode('utf-8'))}",
+            'context': 'profile-image',
+        }
+
+        r = requests.post('https://replit.com/data/images/upload', headers=headers_get_id, json=json_get_id)
+        _id = r.json()['id']
+
+
+        headers_pfp = {
+            'authority': 'replit.com',
+            'accept': '*/*',
+            'accept-language': 'en-GB,en;q=0.9',
+            'cookie': cookie,
+            'origin': 'https://replit.com',
+            'referer': 'https://replit.com/account',
+            'sec-ch-ua': '"Chromium";v="104", " Not A;Brand";v="99", "Google Chrome";v="104"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36',
+            'x-requested-with': 'XMLHttpRequest',
+        }
+
+        json_pfp = [
+            {
+                'operationName': 'AccountProfileCurrentUserUpdate',
+                'variables': {
+                    'input': {
+                        'profileImageId': _id,
+                    },
+                },
+                'query': 'mutation AccountProfileCurrentUserUpdate($input: UpdateCurrentUserInput!) {\n  updateCurrentUser(input: $input) {\n    id\n    ...AccountProfileCurrentUser\n    __typename\n  }\n}\n\nfragment AccountProfileCurrentUser on CurrentUser {\n  id\n  username\n  canUpdateUsername: canUpdate(column: USERNAME)\n  firstName\n  lastName\n  bio\n  hasPrivacyRole\n  hasProfileImage\n  image\n  isSubscribed\n  url\n  __typename\n}\n',
+            },
+        ]
+
+        r1 = requests.post('https://replit.com/graphql', headers=headers_pfp, json=json_pfp)
+        if r1.status_code == 200:
+            print(f"{Fore.GREEN} Updated{Fore.RESET}")
+        else:
+            print(f"{Fore.RED} Error{Fore.RESET}")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def title():
@@ -666,7 +826,7 @@ def title():
 
 os.system('cls')
 def menu():
-    os.system(f'title Replit Aio ^| Made by : github.com/Hazza3100 ^| Status: {status}')
+    os.system(f'title Replit Aio ^| Made by : github.com/Hazza3100 ^| Version: {status}')
     title()
 
 
@@ -683,7 +843,9 @@ def menu():
     print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}4{Fore.RESET} {Fore.RED}]{Fore.RESET} Run Bot')
     print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}5{Fore.RESET} {Fore.RED}]{Fore.RESET} Report User')
     print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}6{Fore.RESET} {Fore.RED}]{Fore.RESET} Username Checker')
-    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}7{Fore.RESET} {Fore.RED}]{Fore.RESET} Credits')
+    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}7{Fore.RESET} {Fore.RED}]{Fore.RESET} Banner Changer')
+    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}8{Fore.RESET} {Fore.RED}]{Fore.RESET} Pfp Changer')
+    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}9{Fore.RESET} {Fore.RED}]{Fore.RESET} Credits')
 
 
     print("")
@@ -721,9 +883,10 @@ def menu():
     if choice == 4:
 
         repl_id = input("Enter repl id > ")
+        repl_id = input("Enter repl link > ")
         threads = input("Amount of runs [Start with 10] > ")
         for i in range(int(threads)):
-            threading.Thread(target=Extra.run, args=(repl_id,)).start()
+            threading.Thread(target=Extra.run, args=(repl_id, link,)).start()
     
     if choice == 5:
 
@@ -741,6 +904,17 @@ def menu():
             threading.Thread(target=Extra.check_user, args=(string_length,)).start()
 
     if choice == 7:
+        threads = input("Amount to change > ")
+        for i in range(int(threads)):
+            threading.Thread(target=Extra.banner_change).start()
+
+    if choice == 8:
+        threads = input("Amount to change > ")
+        for i in range(int(threads)):
+            threading.Thread(target=Extra.pfp_change).start()
+
+
+    if choice == 9:
         os.system("cls")
         title()
         print("")
