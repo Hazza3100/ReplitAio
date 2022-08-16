@@ -2,6 +2,9 @@
 Simple Replit Account Generator with a lot of features
 
 
+![Screenshot](aio.png)
+
+
 # ・How to use
 ・Put proxies in proxies.txt: https://www.webshare.io/?referral_code=27rjvonmaef4
 
