@@ -17,7 +17,7 @@ Also included a replit aio
 
 ・It takes 2 seconds to star, longer to maintain :)
 
-## ・Features
+## ・Generator Features
 ```
 ・Account Generator
 
@@ -34,6 +34,24 @@ Also included a replit aio
 ・Replit Aio
 
 ```
+
+## Aio Features
+
+```
+・Follow bot
+
+・Unfollow bot
+
+・Fork bot
+
+・Run bot
+
+・Report bot
+
+・Username Checker
+```
+
+
 
 ## ・Extra
 ```
