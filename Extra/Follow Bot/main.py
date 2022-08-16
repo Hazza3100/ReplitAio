@@ -1,3 +1,10 @@
+# Author     : Hazza3100
+# Github     : https://github.com/Hazza3100
+# Description: Replit Follow Bot
+
+
+
+
 import random
 import requests
 import threading
