@@ -1,3 +1,7 @@
+# Author     : Hazza3100
+# Github     : https://github.com/Hazza3100
+# Description: Replit Account Generator
+
 import os
 import re
 import time
