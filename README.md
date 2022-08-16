@@ -1,5 +1,6 @@
 # Replit Generator
 Simple Replit Account Generator with a lot of features
+Also included a replit aio
 
 
 ![Screenshot](Aio.png)
