@@ -80,7 +80,9 @@ This project is licensed under the GPL General Public License v3.0 License - see
 ```diff
 v1 ⋮ 14/8/22
 + Stable Release
-
+v1.2 ⋮ 16/8/22
++ Fork Bot
++ Follow Bot
 ```
 
 
