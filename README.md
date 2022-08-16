@@ -43,9 +43,9 @@ Simple Replit Account Generator with a lot of features
 
 ・ 10 stars I will add a fork bot ✅
 
-・ 15 stars I will add a run bot
+・ 15 stars I will add a run bot ✅
 
-・ 20 Stars I will add something new and mega good
+・ 20 Stars I will add a like bot 
 
 ・ 30  At this point I don't even know 😂
 ```
