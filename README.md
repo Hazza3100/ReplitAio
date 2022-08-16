@@ -1,6 +1,5 @@
-# Replit Generator
-Simple Replit Account Generator with a lot of features
-Also included a replit aio
+# Replit Aio
+Replit Aio with Account Generator and more!
 
 
 ![Screenshot](Aio.png)
@@ -30,8 +29,6 @@ Also included a replit aio
 ・Onliner
 
 ・Creates Repl On signup
-
-・Replit Aio
 
 ```
 
