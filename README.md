@@ -74,7 +74,7 @@ Also included a replit aio
 ・ 30  At this point I don't even know 😂
 ```
 
-## Support me
+## Want help?
 ・Join my discord
 https://discord.gg/phts
 
