@@ -2,7 +2,7 @@
 Replit Aio with Account Generator and more!
 
 
-![Screenshot](aio_new.png)
+![Screenshot](aio.png)
 
 
 # ・How to use
