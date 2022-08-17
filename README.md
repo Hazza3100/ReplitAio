@@ -99,9 +99,12 @@ This project is licensed under the GPL General Public License v3.0 License - see
 v1 ⋮ 14/8/22
 + Stable Release
 
-v2 ⋮ 16/8/22
+v1.2 ⋮ 16/8/22
 + Fork Bot
 + Follow Bot
+
+v2 ⋮ 16/8/22
++ Aio
 ```
 
 
