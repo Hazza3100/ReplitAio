@@ -799,6 +799,48 @@ class Extra():
         else:
             print(f"{Fore.RED} Error{Fore.RESET}")
 
+    def bio_change(bio):
+
+        cookies = open('input/cookies.txt', 'r').read().splitlines()
+        cookie = random.choice(cookies)
+
+        headers_bio = {
+                'authority': 'replit.com',
+                'accept': '*/*',
+                'accept-language': 'en-GB,en;q=0.9',
+                'cookie': cookie,
+                'origin': 'https://replit.com',
+                'referer': 'https://replit.com/account',
+                'sec-ch-ua': '"Chromium";v="104", " Not A;Brand";v="99", "Google Chrome";v="104"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-platform': '"Windows"',
+                'sec-fetch-dest': 'empty',
+                'sec-fetch-mode': 'cors',
+                'sec-fetch-site': 'same-origin',
+                'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36',
+                'x-requested-with': 'XMLHttpRequest',
+                }
+
+
+        json_bio = [
+            {
+                'operationName': 'AccountProfileCurrentUserUpdate',
+                'variables': {
+                    'input': {
+                        'firstName': "",
+                        'lastName': "",
+                        'bio': bio,
+                    },
+                },
+                'query': 'mutation AccountProfileCurrentUserUpdate($input: UpdateCurrentUserInput!) {\n  updateCurrentUser(input: $input) {\n    id\n    ...AccountProfileCurrentUser\n    __typename\n  }\n}\n\nfragment AccountProfileCurrentUser on CurrentUser {\n  id\n  username\n  canUpdateUsername: canUpdate(column: USERNAME)\n  firstName\n  lastName\n  bio\n  hasPrivacyRole\n  hasProfileImage\n  image\n  isSubscribed\n  url\n  __typename\n}\n',
+            },
+        ]
+
+        r = requests.post('https://replit.com/graphql', headers=headers_bio, json=json_bio)
+        if r.status_code == 200:
+            print(f"{Fore.GREEN} Updated{Fore.RESET}")
+        else:
+            print(f"{Fore.RED} Error{Fore.RESET}")
 
 
 
@@ -845,7 +887,8 @@ def menu():
     print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}6{Fore.RESET} {Fore.RED}]{Fore.RESET} Username Checker')
     print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}7{Fore.RESET} {Fore.RED}]{Fore.RESET} Banner Changer')
     print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}8{Fore.RESET} {Fore.RED}]{Fore.RESET} Pfp Changer')
-    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}9{Fore.RESET} {Fore.RED}]{Fore.RESET} Credits')
+    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}8{Fore.RESET} {Fore.RED}]{Fore.RESET} Bio Changer')
+    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}10{Fore.RESET} {Fore.RED}]{Fore.RESET} Credits')
 
 
     print("")
@@ -912,9 +955,15 @@ def menu():
         threads = input("Amount to change > ")
         for i in range(int(threads)):
             threading.Thread(target=Extra.pfp_change).start()
-
-
+    
     if choice == 9:
+        bio = input("Bio to change > ")
+        threads = input("Amount to change > ")
+        for i in range(int(threads)):
+            threading.Thread(target=Extra.bio_change, args=(bio,)).start()
+
+
+    if choice == 10:
         os.system("cls")
         title()
         print("")
