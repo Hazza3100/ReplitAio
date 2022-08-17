@@ -46,6 +46,12 @@ Replit Aio with Account Generator and more!
 ・Report bot
 
 ・Username Checker
+
+・Pfp Changer
+
+・Banner Changer
+
+・Bio Changer
 ```
 
 
