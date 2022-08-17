@@ -19,6 +19,32 @@ from os.path import isfile, join
 from capmonster_python import HCaptchaTask
 
 
+try:
+    os.system('pip install colorama')
+except:
+    print("Failed to install colorama")
+
+try:
+    os.system('pip install pystyle')
+except:
+    print("Failed to install pystyle")
+
+try:    
+    os.system('pip install requests')
+except:
+    print("Failed to install requests")
+
+try:
+    os.system('pip install capmonster_python')
+except:
+    print("Failed to install capmonster_python")
+
+try:
+    os.system('pip install PyMailGw')
+except:
+    print("Failed to install PyMailGw")
+
+
 init(convert=True)
 
 
@@ -32,7 +58,7 @@ if version in ver_check:
     status = "Latest"
 else:
     #print(f"{Fore.RED}Outdated ❌")
-    status = "Outdated"
+    status = "OUTDATED"
 
 
 init(convert=True)
@@ -967,8 +993,9 @@ def menu():
         os.system("cls")
         title()
         print("")
-        print(Fore.MAGENTA + f"                                         ╔════════════(Credits)═════════════╗")
-        print(Fore.MAGENTA + f"                                         ║ {Fore.CYAN} Made by {Fore.MAGENTA}{Fore.CYAN}github.com/Hazza3100  {Fore.MAGENTA}  ║{Fore.RESET}")
+        print(Fore.MAGENTA + f"                                         ╔════════════(Credits)═════════════╗")                                               #
+        print(Fore.MAGENTA + f"                                         ║ {Fore.CYAN} Made by  > {Fore.MAGENTA}{Fore.CYAN}github.com/Hazza3100{Fore.MAGENTA} ║{Fore.RESET}")
+        print(Fore.MAGENTA + f"                                         ║ {Fore.CYAN} Discord  >{Fore.MAGENTA}{Fore.CYAN}  discord.gg/phts   {Fore.MAGENTA  }  ║{Fore.RESET}")
         print(Fore.MAGENTA + f"                                         ╚══════════════════════════════════╝")                                               
         print("")
         print("")
