@@ -864,21 +864,9 @@ class Extra():
 
         r = requests.post('https://replit.com/graphql', headers=headers_bio, json=json_bio)
         if r.status_code == 200:
-            print(f"{Fore.GREEN} Updated{Fore.RESET}")
+            print(f"{Fore.GREEN}Updated{Fore.RESET}")
         else:
-            print(f"{Fore.RED} Error{Fore.RESET}")
-
-
-
-
-
-
-
-
-
-
-
-
+            print(f"{Fore.RED}Error{Fore.RESET}")
 
 
 def title():
@@ -1003,11 +991,6 @@ def menu():
         input(Fore.MAGENTA + f"            Press any key to continue {Fore.CYAN}> {Fore.WHITE}")
         os.system('cls')
         menu()
-
-
-
-
-
 
 
 
