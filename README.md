@@ -65,7 +65,7 @@ Replit Aio with Account Generator and more!
 
 ・ 20 Stars I will add a like bot ✅
 
-・ 30  At this point I don't even know 😂
+・ 40 Stars I will add captcha bypass ❌
 ```
 
 ## Want help?
