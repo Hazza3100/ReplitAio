@@ -22,7 +22,7 @@ from capmonster_python import HCaptchaTask
 init(convert=True)
 
 
-version = "1"
+version = "2"
 
 
 
