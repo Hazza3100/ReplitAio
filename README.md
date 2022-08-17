@@ -74,7 +74,9 @@ https://discord.gg/phts
 
 
 ## ・Skids
-I will add all here, dm me with people
+```
+supreme#1049 - Selling for nitro
+```
 
 
 ## 📄・License
