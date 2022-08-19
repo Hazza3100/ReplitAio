@@ -10,7 +10,7 @@ except ImportError:
 finally:
     import pystyle,os,re,time,base64,string,random,requests,threading,pkg_resources,json;from sys import stdout;from os.path import isfile, join;from PyMailGw import MailGwApi;from capmonster_python import HCaptchaTask
 
-version = "2"
+version = "3"
 
 class Fore:
     BLACK = '\033[30m'
