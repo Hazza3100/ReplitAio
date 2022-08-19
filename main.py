@@ -1,90 +1,52 @@
 # Author     : Hazza3100
 # Github     : https://github.com/Hazza3100
 # Description: Replit Aio
-import os
-import re
-import time
-import json
-import base64
-import string
-import random
-import pystyle
-import requests
-import threading
-
-
-from PyMailGw import MailGwApi
-from colorama import Fore, init
-from os.path import isfile, join
-from capmonster_python import HCaptchaTask
-
 
 try:
-    os.system('pip install colorama')
-except:
-    print("Failed to install colorama")
-
-try:
-    os.system('pip install pystyle')
-except:
-    print("Failed to install pystyle")
-
-try:    
-    os.system('pip install requests')
-except:
-    print("Failed to install requests")
-
-try:
-    os.system('pip install capmonster_python')
-except:
-    print("Failed to install capmonster_python")
-
-try:
-    os.system('pip install PyMailGw')
-except:
-    print("Failed to install PyMailGw")
-
-
-init(convert=True)
-
+    import pystyle,os,re,time,base64,string,random,requests,threading,pkg_resources,json;from sys import stdout;from os.path import isfile, join;from PyMailGw import MailGwApi;from capmonster_python import HCaptchaTask
+except ImportError:
+    import subprocess,pkg_resources;from sys import executable
+    subprocess.check_call([executable, '-m', 'pip', 'install', *{'capmonster_python', 'pystyle', 'requests', 'PyMailGw'}-{pkg.key for pkg in pkg_resources.working_set}])
+finally:
+    import pystyle,os,re,time,base64,string,random,requests,threading,pkg_resources,json;from sys import stdout;from os.path import isfile, join;from PyMailGw import MailGwApi;from capmonster_python import HCaptchaTask
 
 version = "2"
 
-
+class Fore:
+    BLACK = '\033[30m'
+    RED = '\033[31m'
+    GREEN = '\033[32m'
+    YELLOW = '\033[33m'
+    BLUE = '\033[34m'
+    MAGENTA = '\033[35m'
+    CYAN = '\033[36m'
+    WHITE = '\033[37m'
+    UNDERLINE = '\033[4m'
+    RESET = '\033[0m'
 
 ver_check = requests.get('https://raw.githubusercontent.com/Hazza3100/ReplitAio/main/version.txt').text
 if version in ver_check:
-    #print(f"{Fore.GREEN}Up to date ✅")
     status = "Latest"
 else:
-    #print(f"{Fore.RED}Outdated ❌")
     status = "OUTDATED"
 
-
-init(convert=True)
 sem = threading.Semaphore(200)
-
 
 class config():
     with open('input/settings.json') as f:
         cfg = json.load(f)
-
     capmonster_key = cfg['Generator']['capmonster_key']
     random_bio = cfg['Generator']['random_bio']
     use_proxy = cfg['Generator']['use_proxy']
 
 
-
 class stats():
-
     genned = 0
     updated = 0
     errors = 0
 
 
-
 # Gen
-
 
 api = MailGwApi(proxy=None, timeout=30)
 def get_inbox():
@@ -99,14 +61,7 @@ def get_inbox():
             verify_link = res[1]
         return verify_link
 
-
-
-
-
-
 class Generator():
-
-
     def gen():
         try:
             proxy = open('input/proxies.txt', 'r').read().splitlines()
@@ -876,42 +831,25 @@ def title():
                     ██████╔╝█████╗  ██████╔╝██║     ██║   ██║     ███████║██║██║  ██║
                     ██╔══██╗██╔══╝  ██╔═══╝ ██║     ██║   ██║     ██╔══██║██║██║  ██║
                     ██║  ██║███████╗██║     ███████╗██║   ██║     ██║  ██║██║╚█████╔╝
-                    ╚═╝  ╚═╝╚══════╝╚═╝     ╚══════╝╚═╝   ╚═╝     ╚═╝  ╚═╝╚═╝ ╚════╝ """, pystyle.Colors.blue_to_white, interval=0.0001)
+                    ╚═╝  ╚═╝╚══════╝╚═╝     ╚══════╝╚═╝   ╚═╝     ╚═╝  ╚═╝╚═╝ ╚════╝""", pystyle.Colors.blue_to_white, interval=0)
     return title
 
 
-os.system('cls')
 def menu():
+    os.system('cls' if os.name=='nt' else 'clear')
+    stdout.write(str(title()).replace("None", ""))
+    stdout.write(f"\n\n\n                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}0{Fore.RESET} {Fore.RED}]{Fore.RESET} Account Generator\n                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}1{Fore.RESET} {Fore.RED}]{Fore.RESET} Follow Bot\n                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}2{Fore.RESET} {Fore.RED}]{Fore.RESET} Unfollow Bot\n                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}3{Fore.RESET} {Fore.RED}]{Fore.RESET} Fork Bot\n                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}4{Fore.RESET} {Fore.RED}]{Fore.RESET} Run Bot\n                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}5{Fore.RESET} {Fore.RED}]{Fore.RESET} Report User\n                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}6{Fore.RESET} {Fore.RED}]{Fore.RESET} Username Checker\n                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}7{Fore.RESET} {Fore.RED}]{Fore.RESET} Banner Changer\n                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}8{Fore.RESET} {Fore.RED}]{Fore.RESET} Pfp Changer\n                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}8{Fore.RESET} {Fore.RED}]{Fore.RESET} Bio Changer\n                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}10{Fore.RESET} {Fore.RED}]{Fore.RESET} Credits\n\n\n\n")
     os.system(f'title Replit Aio ^| Made by : github.com/Hazza3100 ^| Version: {status}')
-    title()
-
-
-
-    print("")
-    print("")
-    print("")
-
-
-    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}0{Fore.RESET} {Fore.RED}]{Fore.RESET} Account Generator')
-    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}1{Fore.RESET} {Fore.RED}]{Fore.RESET} Follow Bot')
-    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}2{Fore.RESET} {Fore.RED}]{Fore.RESET} Unfollow Bot')
-    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}3{Fore.RESET} {Fore.RED}]{Fore.RESET} Fork Bot')
-    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}4{Fore.RESET} {Fore.RED}]{Fore.RESET} Run Bot')
-    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}5{Fore.RESET} {Fore.RED}]{Fore.RESET} Report User')
-    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}6{Fore.RESET} {Fore.RED}]{Fore.RESET} Username Checker')
-    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}7{Fore.RESET} {Fore.RED}]{Fore.RESET} Banner Changer')
-    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}8{Fore.RESET} {Fore.RED}]{Fore.RESET} Pfp Changer')
-    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}8{Fore.RESET} {Fore.RED}]{Fore.RESET} Bio Changer')
-    print(f'                       {Fore.RED}[{Fore.RESET} {Fore.BLUE}10{Fore.RESET} {Fore.RED}]{Fore.RESET} Credits')
-
-
-    print("")
-    print("")
-    print("")
-
-
-    choice = int(input(f"{Fore.MAGENTA} [{Fore.CYAN}?{Fore.MAGENTA}] Enter Choice {Fore.CYAN}> {Fore.WHITE}"))
-
+    try:
+        choice = int(input(f"{Fore.MAGENTA} [{Fore.CYAN}?{Fore.MAGENTA}] Enter Choice {Fore.CYAN}> {Fore.RESET}"))
+        if choice < 0 or choice > 10: 
+            print(f"{Fore.MAGENTA} [{Fore.RED}!{Fore.MAGENTA}]{Fore.RED} Invalid option{Fore.RESET}")
+            time.sleep(2)
+            menu()
+    except ValueError:
+        print(f"{Fore.MAGENTA} [{Fore.RED}!{Fore.MAGENTA}]{Fore.RED} Invalid option{Fore.RESET}")
+        time.sleep(2)
+        menu()
     if choice == 0:
         threads = input("Enter amount of threads > ")
         for i in range(int(threads)):
@@ -978,23 +916,17 @@ def menu():
 
 
     if choice == 10:
-        os.system("cls")
-        title()
-        print("")
-        print(Fore.MAGENTA + f"                                         ╔════════════(Credits)═════════════╗")                                               #
-        print(Fore.MAGENTA + f"                                         ║ {Fore.CYAN} Made by  > {Fore.MAGENTA}{Fore.CYAN}github.com/Hazza3100{Fore.MAGENTA} ║{Fore.RESET}")
-        print(Fore.MAGENTA + f"                                         ║ {Fore.CYAN} Discord  >{Fore.MAGENTA}{Fore.CYAN}  discord.gg/phts   {Fore.MAGENTA  }  ║{Fore.RESET}")
-        print(Fore.MAGENTA + f"                                         ╚══════════════════════════════════╝")                                               
-        print("")
-        print("")
+        os.system('cls' if os.name=='nt' else 'clear')
+        stdout.write(str(title()).replace("None", ""))
+        stdout.write(f"\n{Fore.MAGENTA}                                         ╔════════════(Credits)═════════════╗\n{Fore.MAGENTA}                                         ║ {Fore.CYAN} Made by  > {Fore.MAGENTA}{Fore.CYAN}github.com/Hazza3100{Fore.MAGENTA} ║{Fore.RESET}\n{Fore.MAGENTA}                                         ║ {Fore.CYAN} Discord  >{Fore.MAGENTA}{Fore.CYAN}  discord.gg/phts   {Fore.MAGENTA  }  ║{Fore.RESET}\n{Fore.MAGENTA}                                         ╚══════════════════════════════════╝\n")                                               
         time.sleep(4)
-        input(Fore.MAGENTA + f"            Press any key to continue {Fore.CYAN}> {Fore.WHITE}")
-        os.system('cls')
+        input(f"{Fore.MAGENTA}            Press enter to continue {Fore.CYAN}> {Fore.WHITE}")
+        os.system('cls' if os.name=='nt' else 'clear')
         menu()
 
 
 
 
-
-os.system('cls')
-menu()
+if __name__ == '__main__':
+    os.system('cls' if os.name=='nt' else 'clear')
+    menu()
