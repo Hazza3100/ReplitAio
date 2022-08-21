@@ -65,7 +65,7 @@ Replit Aio with Account Generator and more!
 
 ・ 20 Stars I will add a like bot ✅
 
-・ Turns out hcaptcha is gae and patched :(
+・ Turns out hcaptcha is gae and patched bypass :(
 ```
 
 ## Want help?
