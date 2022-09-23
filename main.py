@@ -274,7 +274,6 @@ class Generator:
                     "query": "mutation AccountProfileCurrentUserUpdate($input: UpdateCurrentUserInput!) {\n  updateCurrentUser(input: $input) {\n    id\n    ...AccountProfileCurrentUser\n    __typename\n  }\n}\n\nfragment AccountProfileCurrentUser on CurrentUser {\n  id\n  username\n  canUpdateUsername: canUpdate(column: USERNAME)\n  firstName\n  lastName\n  bio\n  hasPrivacyRole\n  hasProfileImage\n  image\n  isSubscribed\n  url\n  __typename\n}\n",
                 },
             ]
-
             r = requests.post(
                 url = "https://replit.com/graphql", 
                 headers = headers_bio, 
